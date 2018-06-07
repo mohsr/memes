@@ -1,0 +1,10 @@
+{
+	"name": "Memes",
+	"version": "1.0",
+	"dependencies": {
+		"body-parser": "latest",
+		"express": "latest",
+		"mongodb": "^2.2.33",
+		"validator": "latest"
+	}
+}
