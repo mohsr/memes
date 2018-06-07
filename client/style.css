@@ -1,0 +1,9 @@
+body {
+	background-color: lightblue;
+}
+
+#title {
+	font-size: 48px;
+	color: gold;
+	text-shadow: 3px 3px 7px blue;
+}
