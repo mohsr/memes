@@ -5,6 +5,7 @@
 		"body-parser": "latest",
 		"express": "latest",
 		"mongodb": "^2.2.33",
+		"path": "latest",
 		"validator": "latest"
 	}
 }
