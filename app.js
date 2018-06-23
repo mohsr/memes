@@ -57,17 +57,36 @@ app.get('/' + process.env.MEMEPAGE, function(req, res) {
 
 /* GET memes from database. */
 app.get('/getmemes', function(req,res) {
-    db.collection('memes', function(error, coll) {
+    if (req.query.tkn == null) {
+        res.sendStatus(400);
+    }
+    db.collection('tokens', function(error, coll) {
         if (error) {
             res.sendStatus(500);
         } else {
-            coll.find().toArray(function(error, results) {
+            coll.find({id: req.query.tkn}).toArray(function(error, results) {
                 if (error) {
-                        res.sendStatus(500);
+                    res.sendStatus(500);
                 } else {
-                    /* List memes chronologically. */
-                    results.reverse();
-                    res.send(results);
+                    if (results.length == 0) {
+                        res.sendStatus(400);
+                    } else {
+                        db.collection('memes', function(error, coll) {
+                            if (error) {
+                                res.sendStatus(500);
+                            } else {
+                                coll.find().toArray(function(error, results) {
+                                    if (error) {
+                                            res.sendStatus(500);
+                                    } else {
+                                        /* List memes chronologically. */
+                                        results.reverse();
+                                        res.send(results);
+                                    }
+                                });
+                            }
+                        });
+                    }
                 }
             });
         }
