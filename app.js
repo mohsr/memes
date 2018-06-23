@@ -30,7 +30,6 @@ app.get('/' + process.env.MEMEPAGE, function(req, res) {
 });
 
 /* GET memes from database. */
-/* NOTE: currently only text memes are supported. */
 app.get('/getmemes', function(req,res) {
     db.collection('memes', function(error, coll) {
         if (error) {
