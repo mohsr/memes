@@ -53,4 +53,4 @@ function submitMeme() {
 
 $(document).ready(function() {
     getMemes();
-}
+});
