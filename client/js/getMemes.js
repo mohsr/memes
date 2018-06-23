@@ -10,6 +10,10 @@ function getMemes() {
                 document.getElementById('errormsg').innerHTML = "";
                 var memes = document.getElementById('memes');
                 var memeshtml = "";
+                var data = JSON.parse(responseText);
+                for (var i in data) {
+                    console.log(i);
+                }
                 memes.innerHTML = memeshtml;
             }
         }
