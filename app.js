@@ -61,5 +61,25 @@ app.post('/login', function(req, res) {
     }
 });
 
+/* POST meme to database. */
+app.post('/submitmeme', function(req, res){ 
+    if (req.body.name == null || req.body.txt == null) {
+        res.sendStatus(400);
+    } else {
+        var meme = {
+            name: req.body.name,
+            txt:  req.body.txt
+        }
+        db.collection('memes', function(error, coll) {
+            if (error) {
+                res.sendStatus(500);
+            } else {
+                coll.insert(meme);
+                res.sendStatus(200);
+            }
+        });
+    }
+});
+
 /* Listen on a port. */
 app.listen(process.env.PORT || 3000);
