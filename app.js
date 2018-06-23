@@ -117,23 +117,23 @@ app.post('/submitmeme', function(req, res){
                     } else {
                         if (results.length == 0) {
                             res.sendStatus(400);
-                            return;
+                        } else {
+                            /* Implement XSS protection. */
+                            var meme = {
+                                name: req.body.name.replace('<', ''),
+                                txt:  req.body.txt.replace('<', '')
+                            }
+                            db.collection('memes', function(error, coll) {
+                                if (error) {
+                                    res.sendStatus(500);
+                                } else {
+                                    coll.insert(meme);
+                                    res.sendStatus(200);
+                                }
+                            });
                         }
                     }
                 });
-            }
-        });
-        /* Implement XSS protection. */
-        var meme = {
-            name: req.body.name.replace('<', ''),
-            txt:  req.body.txt.replace('<', '')
-        }
-        db.collection('memes', function(error, coll) {
-            if (error) {
-                res.sendStatus(500);
-            } else {
-                coll.insert(meme);
-                res.sendStatus(200);
             }
         });
     }
