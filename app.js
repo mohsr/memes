@@ -26,6 +26,7 @@ app.get('/', function(req, res) {
 
 /* GET main meme page. */
 app.get('/' + process.env.MEMEPAGE, function(req, res) {
+    /* Generate HTML so that it can't be directly accessed by filename. */
     res.send('<!doctype html>' +
              '<html>' +
                  '<head>' +
@@ -63,6 +64,7 @@ app.get('/getmemes', function(req,res) {
                 if (error) {
                         res.sendStatus(500);
                 } else {
+                    /* List memes chronologically. */
                     results.reverse();
                     res.send(results);
                 }
@@ -89,6 +91,7 @@ app.post('/submitmeme', function(req, res){
     if (req.body.name == null || req.body.txt == null) {
         res.sendStatus(400);
     } else {
+        /* Implement XSS protection. */
         var meme = {
             name: req.body.name.replace('<', ''),
             txt:  req.body.txt.replace('<', '')
