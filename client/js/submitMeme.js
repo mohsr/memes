@@ -21,4 +21,6 @@ function submitMeme() {
     }
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send(data);
+
+    getMemes();
 }
