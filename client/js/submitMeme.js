@@ -13,6 +13,8 @@ function submitMeme() {
             if (xhr.status == 200) {
                 document.getElementById('ty').innerHTML = 
                     "Thanks for the meme!";
+            } else {
+                document.getElementById('ty').innerHTML = "";
             }
         }
     }
