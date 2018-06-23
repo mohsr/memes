@@ -1,7 +1,6 @@
 function getMemes() {
     var xhr   = new XMLHttpRequest();
-    var query = ('tkn=' + window.localStorage.getItem('memetkn'));
-    xhr.open('GET', '/getmemes');
+    xhr.open('GET', '/getmemes?tkn=' + window.localStorage.getItem('memetkn'));
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             if (xhr.status != 200) {
@@ -23,7 +22,7 @@ function getMemes() {
             }
         }
     }
-    xhr.send(query);
+    xhr.send();
 };
 
 function submitMeme() {
