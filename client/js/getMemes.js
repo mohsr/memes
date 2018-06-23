@@ -1,7 +1,3 @@
-$(document).ready(function() {
-    getMemes();
-}
-
 function getMemes() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/getmemes');
@@ -28,3 +24,7 @@ function getMemes() {
     }
     xhr.send();
 };
+
+$(document).ready(function() {
+    getMemes();
+}
