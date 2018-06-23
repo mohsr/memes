@@ -1,4 +1,4 @@
 make meme page prettier
 disable cors
 make it so people can't access memes.html directly
-insert serverside xss protection
+insert serverside xss protection and nosql injection protection

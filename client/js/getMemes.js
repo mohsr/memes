@@ -12,8 +12,9 @@ $(document).ready(function() {
                 var memeshtml = "";
                 var data = JSON.parse(xhr.responseText);
                 for (var i = 0; i < data.length; i++) {
-                    memeshtml += ('<div class="meme">' + data[i].name + 
-                                  ' ' + data[i].txt + '</div><br/>');
+                    memeshtml += ('<div class="meme"><div class="memename">' + 
+                                  data[i].name + '</div><div class="memetxt"' +
+                                  ' ' + data[i].txt + '</div></div><br/>');
                 }
 
                 memes.innerHTML = memeshtml;
