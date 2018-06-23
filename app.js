@@ -90,8 +90,8 @@ app.post('/submitmeme', function(req, res){
         res.sendStatus(400);
     } else {
         var meme = {
-            name: req.body.name,
-            txt:  req.body.txt
+            name: req.body.name.replace('<', ''),
+            txt:  req.body.txt.replace('<', '')
         }
         db.collection('memes', function(error, coll) {
             if (error) {
