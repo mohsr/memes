@@ -1,6 +1,6 @@
 function getMemes() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'getmemes');
+    xhr.open('GET', '/getmemes');
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             if (xhr.readyState != 200) {
