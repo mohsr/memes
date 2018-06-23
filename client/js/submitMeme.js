@@ -14,13 +14,11 @@ function submitMeme() {
             if (xhr.status == 200) {
                 document.getElementById('ty').innerHTML = 
                     "Thanks for the meme!";
+                getMemes();
             } else {
                 document.getElementById('ty').innerHTML = "";
             }
         }
     }
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send(data);
-
-    getMemes();
-}
+    xhr.send(data);}
