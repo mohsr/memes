@@ -4,16 +4,18 @@ $(document).ready(function() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             if (xhr.readyState != 200) {
+                console.log("rip");
                 document.getElementById('errormsg').innerHTML = 
                     "Sorry! Could not load the memes right now.";
             } else {
+                console.log("jk");
                 document.getElementById('errormsg').innerHTML = "";
                 var memes = document.getElementById('memes');
                 var memeshtml = "";
                 var data = JSON.parse(xhr.responseText);
                 for (var i = 0; i < data.length; i++) {
                     memeshtml += ('<div class="meme">' + data[i].name + 
-                                  ' ' + data[i].txt + '</div>')
+                                  ' ' + data[i].txt + '</div>');
                 }
 
                 memes.innerHTML = memeshtml;
