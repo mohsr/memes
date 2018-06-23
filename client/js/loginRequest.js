@@ -8,9 +8,8 @@ function loginRequest() {
 				document.getElementById('errormsg').innerHTML = 
 					"Woops! Wrong password :(";
 			} else {
-				/*REDIRECT TO PAGE*/
-				console.log(xhr.responseText);
 				document.getElementById('errormsg').innerHTML = "";
+				window.location.href = ('/' + xhr.responseText);
 			}
 		}
 	}
