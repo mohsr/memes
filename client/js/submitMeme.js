@@ -2,6 +2,7 @@ function submitMeme() {
     var name = $('#memename').val();
     var txt  = $('#memetxt').val();
     if (name == '' || txt == '') {
+        document.getElementById('ty').innerHTML = "";
         return;
     }
     var data = ('name=' + name + '&txt=' + txt);
