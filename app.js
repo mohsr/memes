@@ -6,7 +6,8 @@ var validator  = require('validator');
 var app = express();
 
 /* Require and configure MongoDB. */
-var mongoUri = /*MONGODBURI*/"";
+var mongoUri = "mongodb://" + process.env.DBUSER + ":" + 
+               process.env.DBPASS + "@ds117111.mlab.com:17111/memes2018";
 var mongo  = require('mongodb').MongoClient;
 var format = require('util').format;
 var db = mongo.connect(mongoUri, function(error, dbconnection) {
