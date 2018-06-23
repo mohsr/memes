@@ -26,7 +26,25 @@ app.get('/', function(req, res) {
 
 /* GET main meme page. */
 app.get('/' + process.env.MEMEPAGE, function(req, res) {
-    res.sendFile(__dirname + '/client/memes.html');
+    res.send('<!doctype html>' +
+             '<html>' +
+                 '<head>' +
+                     '<title>Memes</title>' +
+                     '<meta charset="utf-8" />' +
+                     '<link href="style.css" rel="stylesheet" />' +
+                     '<script src="js/jquery-3.3.1.min.js"></script>' +
+                     '<script src="js/getMemes.js"></script>' +
+                 '</head>' +
+                 '<body>' +
+                     '<div id="title">Memes</div>' +
+                     '<div id="submit">' +
+                     '' +
+                     '</div>' +
+                     '<label id="errormsg"></label>' +
+                     '<div id="memes">' +
+                     '</div>' +
+                 '</body>' +
+             '</html>');
 });
 
 /* GET memes from database. */
