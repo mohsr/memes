@@ -4,8 +4,19 @@
         <title>Memes</title>
         <meta charset="utf-8" />
         <link href="style.css" rel="stylesheet" />
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/loginRequest.js"></script>
     </head>
     <body>
         <div id="title">Memes</div>
+        <div id="loginhere">
+            <br/>
+            <label>What's the password?</label>
+            <label id="errormsg"></label>
+            <br/>
+            <input type="text" id="pwdinput" />
+            <br/>
+            <button type="button" onclick="loginRequest()">Submit</button>
+        </div>
     </body>
 </html>
