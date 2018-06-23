@@ -25,7 +25,7 @@ app.get('/', function(req, res) {
 
 /* GET main meme page. */
 app.get('/' + process.env.MEMEPAGE, function(req, res) {
-    res.sendFile('memes.html');
+    res.sendFile('client/memes.html');
 });
 
 /* GET memes from database. */
