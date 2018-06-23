@@ -12,10 +12,14 @@ body {
     color: red;
 }
 
-.mname {
-
+.meme {
+    background-color: darkblue;
 }
 
 .mtxt {
 
+}
+
+.mname {
+    font-style: italic;
 }
