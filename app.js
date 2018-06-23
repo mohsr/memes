@@ -117,6 +117,7 @@ app.post('/submitmeme', function(req, res){
                     } else {
                         if (results.length == 0) {
                             res.sendStatus(400);
+                            return;
                         }
                     }
                 });
