@@ -47,13 +47,6 @@ app.get('/getmemes', function(req,res) {
     });
 });
 
-/* GET memes.html. */
-/* NOTE: This is my temporary workaround to the fact that user's can 
-   directly GET the meme page. */
-app.get('/memes.html', function(req, res) {
-    res.sendStatus(400);
-});
-
 /* POST login to meme page. */
 /* NOTE: this website uses the world's worst authentication. Maybe I'll 
          make it better later, but it doesn't need much right now. */
