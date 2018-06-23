@@ -33,8 +33,7 @@ app.get('/' + process.env.MEMEPAGE, function(req, res) {
                      '<meta charset="utf-8" />' +
                      '<link href="style.css" rel="stylesheet" />' +
                      '<script src="js/jquery-3.3.1.min.js"></script>' +
-                     '<script src="js/getMemes.js"></script>' +
-                     '<script src="js/submitMeme.js"></script>' +
+                     '<script src="js/memeOps.js"></script>' +
                  '</head>' +
                  '<body>' +
                      '<div id="title">Memes</div>' +
