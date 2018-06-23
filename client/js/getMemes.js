@@ -11,9 +11,10 @@ function getMemes() {
                 var memes = document.getElementById('memes');
                 var memeshtml = "";
                 var data = JSON.parse(responseText);
-                for (var i in data) {
-                    console.log(i);
+                for (var i = 0; i < data.length; i++) {
+                    memeshtml += ('<div class="meme">' + data[i].name + ' ' + data[i].txt + '</div>')
                 }
+
                 memes.innerHTML = memeshtml;
             }
         }
