@@ -34,6 +34,7 @@ app.get('/' + process.env.MEMEPAGE, function(req, res) {
                      '<link href="style.css" rel="stylesheet" />' +
                      '<script src="js/jquery-3.3.1.min.js"></script>' +
                      '<script src="js/getMemes.js"></script>' +
+                     '<script src="js/submitMeme.js"></script>' +
                  '</head>' +
                  '<body>' +
                      '<div id="title">Memes</div>' +
@@ -42,8 +43,8 @@ app.get('/' + process.env.MEMEPAGE, function(req, res) {
                      '<input type="text" id="memetxt"/><br/>' +
                      '<label>Who are you?</label><br/>' +
                      '<input type="text" id="memename"/><br/>' +
-                     '<button type="button" onclick="memesubmit()">' +
-                     'Submit the meme</button><br/>' +
+                     '<button type="button" onclick="submitMeme()">' +
+                     'Submit the meme</button><br/><br/>' +
                      '</div>' +
                      '<label id="errormsg"></label>' +
                      '<div id="memes">' +

@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    getMemes();
+}
+
+function getMemes() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/getmemes');
     xhr.onreadystatechange = function() {
@@ -23,4 +27,4 @@ $(document).ready(function() {
         }
     }
     xhr.send();
-});
+};
