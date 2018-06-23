@@ -1,6 +1,7 @@
 /* Require dependencies. */
 var express    = require('express');
 var path       = require('path');
+var crypto     = require('crypto');
 var bodyparser = require('body-parser');
 var validator  = require('validator');
 var app = express();
@@ -74,23 +75,53 @@ app.get('/getmemes', function(req,res) {
 });
 
 /* POST login to meme page. */
-/* NOTE: this website uses the world's worst authentication. Maybe I'll 
-         make it better later, but it doesn't need much right now. */
 app.post('/login', function(req, res) {
     if (req.body.pwd == null) {
         res.sendStatus(400);
     } else if (req.body.pwd != process.env.MEMEPWD) {
         res.sendStatus(501);
     } else {
-        res.send(process.env.MEMEPAGE);
+        var token = crypto.randomBytes(12).toString('hex');
+        db.collection('tokens', function(error, coll) {
+            if (error) {
+                res.sendStatus(500);
+            } else {
+                coll.insert({id: token});
+            }
+        });
+
+
+        var obj = {
+            tokenid: token,
+            url:     process.env.MEMEPAGE
+        }
+        res.send(obj);
     }
 });
 
 /* POST meme to database. */
 app.post('/submitmeme', function(req, res){ 
-    if (req.body.name == null || req.body.txt == null) {
+    if (req.body.name == null || 
+        req.body.txt == null  || 
+        req.body.tkn == null) {
         res.sendStatus(400);
     } else {
+        /* Check for token in database. */
+        db.collection('tokens', function(error, coll) {
+            if (error) {
+                res.sendStatus(500);
+            } else {
+                coll.find({id: req.body.tkn}).toArray(function(error, results) {
+                    if (error) {
+                        res.sendStatus(500);
+                    } else {
+                        if (results.length == 0) {
+                            res.sendStatus(400);
+                        }
+                    }
+                });
+            }
+        });
         /* Implement XSS protection. */
         var meme = {
             name: req.body.name.replace('<', ''),

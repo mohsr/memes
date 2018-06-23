@@ -8,8 +8,10 @@ function loginRequest() {
                 document.getElementById('errormsg').innerHTML = 
                     "Woops! Wrong password :(";
             } else {
+                var data = JSON.parse(xhr.responseText);
                 document.getElementById('errormsg').innerHTML = "";
-                window.location.href = ('/' + xhr.responseText);
+                window.localStorage.setItem('memetkn', data.tokenid);
+                window.location.href = ('/' + data.url);
             }
         }
     }

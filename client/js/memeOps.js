@@ -35,7 +35,8 @@ function submitMeme() {
         return;
     }
     document.getElementById('errormsg').innerHTML = "";
-    var data = ('name=' + name + '&txt=' + txt);
+    var data = ('name=' + name + '&txt=' + txt + '&tkn=' +
+                window.localStorage.getItem('memetkn'));
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/submitmeme');
