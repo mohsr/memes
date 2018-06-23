@@ -30,8 +30,11 @@ function submitMeme() {
     var txt  = $('#memetxt').val();
     if (name == '' || txt == '') {
         document.getElementById('ty').innerHTML = "";
+        document.getElementById('errormsg').innerHTML = 
+            "Please include a name and a meme!";
         return;
     }
+    document.getElementById('errormsg').innerHTML = "";
     var data = ('name=' + name + '&txt=' + txt);
 
     var xhr = new XMLHttpRequest();
