@@ -10,7 +10,7 @@ function getMemes() {
                 document.getElementById('errormsg').innerHTML = "";
                 var memes = document.getElementById('memes');
                 var memeshtml = "";
-                var data = JSON.parse(responseText);
+                var data = JSON.parse(xhr.responseText);
                 for (var i = 0; i < data.length; i++) {
                     memeshtml += ('<div class="meme">' + data[i].name + ' ' + data[i].txt + '</div>')
                 }
