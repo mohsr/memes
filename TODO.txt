@@ -1,2 +1,1 @@
 disable cors
-insert serverside xss protection and nosql injection protection
