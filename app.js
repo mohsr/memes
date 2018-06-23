@@ -45,6 +45,7 @@ app.get('/' + process.env.MEMEPAGE, function(req, res) {
                      '<input type="text" id="memename"/><br/>' +
                      '<button type="button" onclick="submitMeme()">' +
                      'Submit the meme</button><br/><br/>' +
+                     '<label id="ty"></label>' +
                      '</div>' +
                      '<label id="errormsg"></label>' +
                      '<div id="memes">' +
