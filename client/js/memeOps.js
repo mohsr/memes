@@ -57,18 +57,15 @@ function submitMeme() {
 }
 
 function bEmoji() {
-    $('#memetxt').on('input', function() {
-        var val = $(this).val();
-        for (var i = 0; i < val.length; i++) {
-            if (val[i].toLowerCase() == 'b') {
-                val[i] = '🅱️';
-            }
+    var inpVal = $('#memetxt').val();
+    for (var i = 0; i < inpVal.length; i++) {
+        if (inpVal[i].toLowerCase() == 'b') {
+            inpVal[i] = '🅱️';
         }
-        $(this).val(val);
-    });
+    }
+    $('#memetxt').val(inpVal);
 }
 
 $(document).ready(function() {
     getMemes();
-    bEmoji();
 });
