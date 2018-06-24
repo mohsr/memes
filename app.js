@@ -106,10 +106,20 @@ app.post('/login', function(req, res) {
             if (error) {
                 res.sendStatus(500);
             } else {
-                coll.insert({id: token});
+                coll.insert({id: token, time: new Date()});
+                /* Clear old tokens. */
+                coll.find().toArray(function(error, results) {
+                    for (var i = 0; i < results.length; i++) {
+                        var rn   = new Date();
+                        var mins = (rn.getTime() - results[i].time.getTime());
+                        mins /= 6000;
+                        if (mins >= 3) {
+                            coll.deleteOne({id: results[i].id});
+                        }
+                    }
+                });
             }
         });
-
 
         var obj = {
             tokenid: token,
