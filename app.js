@@ -112,7 +112,7 @@ app.post('/login', function(req, res) {
                     for (var i = 0; i < results.length; i++) {
                         var rn   = new Date();
                         var mins = (rn.getTime() - results[i].time.getTime());
-                        mins /= 6000;
+                        mins /= 60000;
                         if (mins >= 3) {
                             coll.deleteOne({id: results[i].id});
                         }
