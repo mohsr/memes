@@ -59,9 +59,8 @@ function submitMeme() {
 function bEmoji() {
     var inpVal = $('#memetxt').val();
     for (var i = 0; i < inpVal.length; i++) {
-        if (inpVal[i].toLowerCase() == 'b') {
+        if (inpVal[i] == 'b' || inpVal[i] == 'B') {
             inpVal[i] = '🅱️';
-            console.log(inpVal);
         }
     }
     $('#memetxt').val(inpVal);
