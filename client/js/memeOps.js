@@ -58,11 +58,8 @@ function submitMeme() {
 
 function bEmoji() {
     var inpVal = $('#memetxt').val();
-    for (var i = 0; i < inpVal.length; i++) {
-        if (inpVal[i] == 'b' || inpVal[i] == 'B') {
-            inpVal[i] = '🅱️';
-        }
-    }
+    inpVal = inpVal.replace('b', '🅱️');
+    inpVal = inpVal.replace('B', '🅱️');
     $('#memetxt').val(inpVal);
 }
 
