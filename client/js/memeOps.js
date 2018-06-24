@@ -5,7 +5,8 @@ function getMemes() {
         if (xhr.readyState == 4) {
             if (xhr.status != 200) {
                 document.getElementById('errormsg').innerHTML = 
-                    "Sorry! Could not load the memes right now.";
+                    "Sorry! Could not load the memes right now. Did you " + 
+                    "log in?";
             } else {
                 document.getElementById('errormsg').innerHTML = "";
                 var memes = document.getElementById('memes');
@@ -53,6 +54,16 @@ function submitMeme() {
     }
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send(data);
+}
+
+function bEmoji() {
+    var inpVal = $('#memetxt').val();
+    for (var i = 0; i < inpVal.length; i++) {
+        if (inpVal[i].toLowerCase() == 'b') {
+            inpVal[i] = '🅱';
+        }
+    }
+    $('#memetxt').val(inpVal);
 }
 
 $(document).ready(function() {
